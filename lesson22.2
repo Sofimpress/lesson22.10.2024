@@ -1,0 +1,40 @@
+﻿namespace ConsoleApp12
+{
+    using System;
+using System.Collections.Generic;
+
+namespace Kata
+{
+    public class CountLetters
+    {
+        public static void CountLettersInString(string inputString)
+        {
+            Dictionary<char, int> letterCounts = new Dictionary<char, int>();
+
+            foreach (char letter in inputString.ToLower())
+            {
+                if (letterCounts.ContainsKey(letter))
+                {
+                    letterCounts[letter]++;
+                }
+                else
+                {
+                    letterCounts.Add(letter, 1);
+                }
+            }
+
+            foreach (KeyValuePair<char, int> kvp in letterCounts)
+            {
+                Console.WriteLine($"{kvp.Key}: {kvp.Value}");
+            }
+        }
+    }
+}
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("Hello, World!");
+        }
+    }
+}

@@ -1,0 +1,45 @@
+﻿namespace ConsoleApp13
+{
+    using System;
+    using System.Collections.Generic;
+
+    namespace Kata
+    {
+        public class FindOddOccurences
+        {
+            public static int FindOddOccurence(int[] array)
+            {
+                Dictionary<int, int> numberCounts = new Dictionary<int, int>();
+
+                foreach (int number in array)
+                {
+                    if (numberCounts.ContainsKey(number))
+                    {
+                        numberCounts[number]++;
+                    }
+                    else
+                    {
+                        numberCounts.Add(number, 1);
+                    }
+                }
+
+                foreach (KeyValuePair<int, int> kvp in numberCounts)
+                {
+                    if (kvp.Value % 2 != 0)
+                    {
+                        return kvp.Key;
+                    }
+                }
+
+                return -1;
+            }
+        }
+    }
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("Hello, World!");
+        }
+    }
+}
